@@ -47,8 +47,6 @@ func main() {
 		return
 	}
 
-	go reader(conn)
-
 	req, err := http.NewRequest("GET", "/containers/json", nil)
 
 	if err != nil {
@@ -60,4 +58,9 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+
+	go reader(conn)
+
+	var input string
+	fmt.Scanln(&input)
 }
